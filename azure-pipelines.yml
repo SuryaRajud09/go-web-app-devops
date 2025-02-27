@@ -39,13 +39,6 @@ stages:
                 $(IMAGE_TAG)
                 latest
 
-  - stage: DeployToEKS
-    displayName: 'Deploy to EKS'
-    dependsOn: BuildAndPush
-    jobs:
-      - job: Deploy
-        displayName: 'Deploy Application to EKS'
-        steps:
           - task: Bash@3
             displayName: 'Update Kubeconfig'
             inputs:
