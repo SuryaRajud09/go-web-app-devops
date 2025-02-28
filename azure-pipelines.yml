@@ -19,6 +19,7 @@ stages:
               targetType: 'inline'
               script: |
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 393354520949.dkr.ecr.us-east-1.amazonaws.com
+                docker tag go-app:latest 393354520949.dkr.ecr.us-east-1.amazonaws.com/go-app:latest
 
           - task: Docker@2
             displayName: 'Build Docker Image'
