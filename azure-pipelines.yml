@@ -5,7 +5,7 @@ trigger:
 stages:
   - stage: BuildAndPush
     pool:
-     vmImage: 'ubuntu-latest'
+     name: 'surya'
     displayName: 'Build and Push Docker Image'
     jobs:
       - job: Build
