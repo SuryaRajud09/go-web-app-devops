@@ -52,7 +52,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                sed -i "s|<IMAGE>|$(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(ECR_REPOSITORY):$(IMAGE_TAG)|g" $(DEPLOYMENT_MANIFEST)
+                sed -i '' "s|<IMAGE>|$(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(ECR_REPOSITORY):$(IMAGE_TAG)|g" $(DEPLOYMENT_MANIFEST)
                 kubectl apply -f $(DEPLOYMENT_MANIFEST)
-                kubectl rollout status deployment/go-app -n default
+                kubectl rollout status deployment/go-web-app -n default
 
